@@ -1,0 +1,99 @@
+<html lang="en" class="-webkit-">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen Demo</title>
+
+    <meta name="robots" content="noindex" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+
+  <body>
+    <ul id="app" class="timeline">
+      <li v-for="(schedule, day) in schedules" class="timeline-event">
+        <label class="timeline-event-icon"></label>
+        <div class="timeline-event-copy">
+          <p class="timeline-event-thumbnail">{{ schedule.date }}</p>
+          <h3>第{{ day + 1 }}天</h3>
+          <h4>Geschäftsführerin eines Web-Studios</h4>
+          <p v-for="event in schedule.events">
+            <strong>{{ event.time }} : {{ event.location }}</strong><br />
+            {{ event.do }}
+          </p>
+        </div>
+      </li>
+    </ul>
+  </body>
+  <script>
+    const { createApp } = Vue
+  
+    createApp({
+      data() {
+        return {
+            schedules: [
+              {
+                date: '2022.8.16 (二)',
+                events:[
+                  {
+                    time: '08:00',
+                    location: '懷恩教會',
+                    do: '集合出發'
+                  },
+                  {
+                    time: '09:00',
+                    location: '清水斷崖-匯德休憩區',
+                    do: ''
+                  },
+                  {
+                    time: '11:30',
+                    location: '福哥家(頭城鎮東興街96巷13號6樓)',
+                    do: ''
+                  },
+                  {
+                    time: '12:00',
+                    location: '老巴中牛肉麵',
+                    do: '吃午餐'
+                  },
+                  {
+                    time: '15:00',
+                    location: '聯發芋冰老店',
+                    do: '吃冰'
+                  },
+                  {
+                    time: '15:30',
+                    location: '外澳沙灘',
+                    do: '海邊沙灘玩水'
+                  },
+                  {
+                    time: '17:30',
+                    location: '朗居文旅 or 開蘭行旅',
+                    do: '辦理入住'
+                  },
+                  {
+                    time: '18:00',
+                    location: '老街懷舊食堂',
+                    do: '吃晚餐'
+                  },
+                  {
+                    time: '18:00',
+                    location: '福哥家(頭城鎮東興街96巷13號6樓)',
+                    do: '聊聊天'
+                  },
+                ]
+              },
+              {
+                date: '2022.8.17 (三)',
+                events:[{}]
+              }
+            ]
+          }
+        }
+    }).mount('#app')
+  </script>
+</html>

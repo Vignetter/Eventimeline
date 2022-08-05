@@ -21,9 +21,9 @@
         <div class="timeline-event-copy">
           <p class="timeline-event-thumbnail">{{ schedule.date }}</p>
           <h3>第{{ day + 1 }}天</h3>
-          <h4>Geschäftsführerin eines Web-Studios</h4>
+          <h4>{{ schedule.desc }}</h4>
           <p v-for="event in schedule.events">
-            <strong>{{ event.time }} : {{ event.location }}</strong><br />
+            <strong>{{ event.time? event.time + ' : ' : '' }}{{ event.location }}</strong><br />
             {{ event.do }}
           </p>
         </div>
@@ -31,69 +31,100 @@
     </ul>
   </body>
   <script>
-    const { createApp } = Vue
-  
+    const { createApp } = Vue;
+
     createApp({
       data() {
         return {
-            schedules: [
-              {
-                date: '2022.8.16 (二)',
-                events:[
-                  {
-                    time: '08:00',
-                    location: '懷恩教會',
-                    do: '集合出發'
-                  },
-                  {
-                    time: '09:00',
-                    location: '清水斷崖-匯德休憩區',
-                    do: ''
-                  },
-                  {
-                    time: '11:30',
-                    location: '福哥家(頭城鎮東興街96巷13號6樓)',
-                    do: ''
-                  },
-                  {
-                    time: '12:00',
-                    location: '老巴中牛肉麵',
-                    do: '吃午餐'
-                  },
-                  {
-                    time: '15:00',
-                    location: '聯發芋冰老店',
-                    do: '吃冰'
-                  },
-                  {
-                    time: '15:30',
-                    location: '外澳沙灘',
-                    do: '海邊沙灘玩水'
-                  },
-                  {
-                    time: '17:30',
-                    location: '朗居文旅 or 開蘭行旅',
-                    do: '辦理入住'
-                  },
-                  {
-                    time: '18:00',
-                    location: '老街懷舊食堂',
-                    do: '吃晚餐'
-                  },
-                  {
-                    time: '18:00',
-                    location: '福哥家(頭城鎮東興街96巷13號6樓)',
-                    do: '聊聊天'
-                  },
-                ]
-              },
-              {
-                date: '2022.8.17 (三)',
-                events:[{}]
-              }
-            ]
-          }
-        }
-    }).mount('#app')
+          schedules: [
+            {
+              date: "2022.8.16 (二)",
+              events: [
+                {
+                  time: "08:00",
+                  location: "懷恩教會",
+                  do: "集合出發",
+                },
+                {
+                  time: "09:00",
+                  location: "清水斷崖-匯德休憩區",
+                  do: "",
+                },
+                {
+                  time: "11:30",
+                  location: "福哥家(頭城鎮東興街96巷13號6樓)",
+                  do: "",
+                },
+                {
+                  time: "12:00",
+                  location: "老巴中牛肉麵",
+                  do: "吃午餐",
+                },
+                {
+                  time: "15:00",
+                  location: "聯發芋冰老店",
+                  do: "吃冰",
+                },
+                {
+                  time: "15:30",
+                  location: "外澳沙灘",
+                  do: "海邊沙灘玩水",
+                },
+                {
+                  time: "17:30",
+                  location: "朗居文旅 or 開蘭行旅",
+                  do: "辦理入住",
+                },
+                {
+                  time: "18:00",
+                  location: "老街懷舊食堂",
+                  do: "吃晚餐",
+                },
+                {
+                  time: "18:00",
+                  location: "福哥家(頭城鎮東興街96巷13號6樓)",
+                  do: "聊聊天",
+                },
+              ],
+            },
+            {
+              date: "2022.8.17 (三)",
+              events: [
+                { time: "08:00", location: "飯店", do: "早餐" },
+                {
+                  time: "09:20",
+                  location: "頭城車站",
+                  do: "搭09:38區間車到貢寮",
+                },
+                { time: "10:20", location: "貢寮車站", do: "買阿生便當" },
+                {
+                  time: "10:30",
+                  location: "草嶺古道",
+                  do: "馬偕行腳故事走讀之旅",
+                },
+                {
+                  time: "16:40",
+                  location: "大里車站",
+                  do: "搭16:59區間車回頭城",
+                },
+                { time: "18:00", location: "珍香海鮮餐廳", do: "晚餐" },
+                { time: "19:30", location: "朗居文旅OR開蘭行旅", do: "休息" },
+              ],
+            },
+            {
+              date: "2022.8.17 (三)",
+              desc: '回程建議可以順遊 ~',
+              events: [
+                { location: "壯圍沙丘旅遊服務園區" },
+                { location: "蘇澳宜蘭餅觀光工廠" },
+                { location: "蘇澳番割田甕缸雞 (午餐烤雞)" },
+                { location: "南澳朝陽漁港" },
+                { location: "新城天主堂" },
+              ],
+            },
+          ],
+        };
+      },
+    }).mount("#app");
   </script>
 </html>

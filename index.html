@@ -21,10 +21,12 @@
         <div class="timeline-event-copy">
           <p class="timeline-event-thumbnail">{{ schedule.date }}</p>
           <h3>第{{ day + 1 }}天</h3>
-          <h4>{{ schedule.desc }}</h4>
           <p v-for="event in schedule.events">
-            <strong>{{ event.time? event.time + ' : ' : '' }}{{ event.location }}</strong><br />
-            {{ event.do }}
+            <strong
+              >{{ event.time? event.time + ' : ' : '' }}{{ event.location
+              }}</strong
+            ><br />
+            <label v-for="(d, index) in event.do.split(`\n`)">{{ d }}<br></label>
           </p>
         </div>
       </li>
@@ -42,55 +44,28 @@
               events: [
                 {
                   time: "08:00",
-                  location: "懷恩教會",
-                  do: "集合出發",
+                  location: "懷恩教會集合出發",
+                  do: "搭福音車者8點出發\n坐火車者9:05自強號-由吉安站上車",
                 },
-                {
-                  time: "09:00",
-                  location: "清水斷崖-匯德休憩區",
-                  do: "",
-                },
+                { time: "11:15", location: "頭城火車站", do: "抵達" },
                 {
                   time: "11:30",
-                  location: "福哥家(頭城鎮東興街96巷13號6樓)",
+                  location: "福哥家 (頭城鎮東興街96巷13號6樓)",
                   do: "",
                 },
-                {
-                  time: "12:00",
-                  location: "老巴中牛肉麵",
-                  do: "吃午餐",
-                },
-                {
-                  time: "15:00",
-                  location: "聯發芋冰老店",
-                  do: "吃冰",
-                },
-                {
-                  time: "15:30",
-                  location: "外澳沙灘",
-                  do: "海邊沙灘玩水",
-                },
-                {
-                  time: "17:30",
-                  location: "朗居文旅 or 開蘭行旅",
-                  do: "辦理入住",
-                },
-                {
-                  time: "18:00",
-                  location: "老街懷舊食堂",
-                  do: "吃晚餐",
-                },
-                {
-                  time: "18:00",
-                  location: "福哥家(頭城鎮東興街96巷13號6樓)",
-                  do: "聊聊天",
-                },
+                { time: "12:00", location: "老巴中牛肉麵", do: "午餐" },
+                { time: "13:00", location: "頭城老街", do: "馬偕故事故事散步" },
+                { time: "15:00", location: "聯發芋冰老店", do: "吃冰" },
+                { time: "15:30", location: "外澳沙灘", do: "海邊沙灘玩水" },
+                { time: "17:30", location: "賞鯨與貓之家民宿", do: "辦理入住" },
+                { time: "18:00", location: "老街懷舊食堂", do: "晚餐" },
+                { time: "19:30", location: "福哥家 (頭城鎮東興街96巷13號6樓)", do: "聊聊天" },
               ],
             },
             {
               date: "2022.8.17 (三)",
               events: [
-                { time: "08:00", location: "飯店", do: "早餐" },
+                { time: "08:00", location: "早餐店或7-11", do: "早餐自理自付" },
                 {
                   time: "09:20",
                   location: "頭城車站",
@@ -108,18 +83,24 @@
                   do: "搭16:59區間車回頭城",
                 },
                 { time: "18:00", location: "珍香海鮮餐廳", do: "晚餐" },
-                { time: "19:30", location: "朗居文旅OR開蘭行旅", do: "休息" },
+                { time: "19:30", location: "賞鯨與貓之家民宿", do: "休息" },
               ],
             },
             {
-              date: "2022.8.17 (三)",
-              desc: '回程建議可以順遊 ~',
+              date: "2022.8.18 (四)",
               events: [
-                { location: "壯圍沙丘旅遊服務園區" },
-                { location: "蘇澳宜蘭餅觀光工廠" },
-                { location: "蘇澳番割田甕缸雞 (午餐烤雞)" },
-                { location: "南澳朝陽漁港" },
-                { location: "新城天主堂" },
+                { time: "08:00", location: "早餐店或7-11", do: "早餐自理自付" },
+                { time: "09:00", location: "礁溪川湯春天飯店", do: "溫泉SPA" },
+                {
+                  time: "12:30",
+                  location: "午餐",
+                  do: "自理自付\n搭福音者中餐後出發回花蓮",
+                },
+                {
+                  time: "14:00",
+                  location: "礁溪車站",
+                  do: "搭火車者，坐14:27EMU3000回花蓮",
+                },
               ],
             },
           ],
